@@ -9,4 +9,5 @@ func main() {
 	egyptian.ValidateInput(x, y)
 	result := egyptian.Calculate(x, y)
 	egyptian.DisplayResult(result)
+	egyptian.AskFinish()
 }

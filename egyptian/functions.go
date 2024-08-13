@@ -5,10 +5,21 @@ import (
 	"os"
 )
 
+func AskFinish() {
+	fmt.Println("Press Any key to stop: ")
+	_, err := fmt.Scanln()
+
+	if err != nil {
+		return
+	}
+
+	fmt.Println("👋 Bye!")
+}
+
 func Calculate(x, y int) int {
 	z := 0
 
-	fmt.Printf("%d * %d\n", x, y)
+	fmt.Printf("%d * %d", x, y)
 
 	for x > 1 {
 		if IsEven(x) {
@@ -30,7 +41,7 @@ func Calculate(x, y int) int {
 }
 
 func DisplayResult(result int) {
-	fmt.Printf("= %d", result)
+	fmt.Printf("= %d\n", result)
 }
 
 func IsEven(number int) bool {
@@ -45,7 +56,7 @@ func ReadInput() (int, int) {
 	var x, y int
 
 	fmt.Print("🚀 Type two numbers and press Enter: ")
-	_, err := fmt.Scanf("%d %d", &x, &y) // See https://go.dev/doc/effective_go#blank
+	_, err := fmt.Scanf("%d %d\n", &x, &y) // See https://go.dev/doc/effective_go#blank
 
 	if err != nil { // See https://google.github.io/styleguide/go/decisions.html
 		return 0, 0
