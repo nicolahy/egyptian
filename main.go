@@ -22,6 +22,4 @@ func main() {
 			break
 		}
 	}
-
-	egyptian.Finish()
 }

@@ -46,15 +46,6 @@ func DoItAgain() bool {
 	return response == "y" || response == "Y"
 }
 
-func Finish() {
-	fmt.Print("Press any key to stop: ")
-
-	_, err := fmt.Scanln()
-	if err != nil {
-		return
-	}
-}
-
 func IsEven(number int) bool {
 	return number%2 == 0
 }
