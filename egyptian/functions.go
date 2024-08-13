@@ -2,7 +2,6 @@ package egyptian
 
 import (
 	"fmt"
-	"os"
 )
 
 func Calculate(x, y int) int {
@@ -38,13 +37,22 @@ func DoItAgain() bool {
 
 	fmt.Print("Continue? (y/N): ")
 
-	_, err := fmt.Scanln(&response)
+	_, err := fmt.Scanln(&response) // Do not forget the newline character (buffer reader)
 
 	if err != nil {
 		return false
 	}
 
 	return response == "y" || response == "Y"
+}
+
+func Finish() {
+	fmt.Print("Press any key to stop: ")
+
+	_, err := fmt.Scanln()
+	if err != nil {
+		return
+	}
 }
 
 func IsEven(number int) bool {
@@ -68,9 +76,11 @@ func ReadInput() (int, int) {
 	return x, y
 }
 
-func ValidateInput(x, y int) {
+func ValidateInput(x, y int) bool {
 	if x < 1 || y < 1 {
-		fmt.Printf("💥 Check your numbers : [x => %d], [y => %d]", x, y)
-		os.Exit(666)
+		fmt.Printf("💥 Check your numbers : [x => %d], [y => %d]\n", x, y)
+		return false
 	}
+
+	return true
 }
