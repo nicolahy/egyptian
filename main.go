@@ -5,9 +5,13 @@ import (
 )
 
 func main() {
-	x, y := egyptian.ReadInput()
-	egyptian.ValidateInput(x, y)
-	result := egyptian.Calculate(x, y)
-	egyptian.DisplayResult(result)
-	egyptian.AskFinish()
+	for {
+		x, y := egyptian.ReadInput()
+		egyptian.ValidateInput(x, y)
+		result := egyptian.Calculate(x, y)
+		egyptian.DisplayResult(result)
+		if !egyptian.DoItAgain() {
+			break
+		}
+	}
 }

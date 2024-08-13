@@ -5,21 +5,10 @@ import (
 	"os"
 )
 
-func AskFinish() {
-	fmt.Println("Press Any key to stop: ")
-	_, err := fmt.Scanln()
-
-	if err != nil {
-		return
-	}
-
-	fmt.Println("👋 Bye!")
-}
-
 func Calculate(x, y int) int {
 	z := 0
 
-	fmt.Printf("%d * %d", x, y)
+	fmt.Printf("%d * %d\n", x, y)
 
 	for x > 1 {
 		if IsEven(x) {
@@ -42,6 +31,20 @@ func Calculate(x, y int) int {
 
 func DisplayResult(result int) {
 	fmt.Printf("= %d\n", result)
+}
+
+func DoItAgain() bool {
+	var response string
+
+	fmt.Print("Continue? (y/N): ")
+
+	_, err := fmt.Scanln(&response)
+
+	if err != nil {
+		return false
+	}
+
+	return response == "y" || response == "Y"
 }
 
 func IsEven(number int) bool {
@@ -67,7 +70,7 @@ func ReadInput() (int, int) {
 
 func ValidateInput(x, y int) {
 	if x < 1 || y < 1 {
-		fmt.Printf("💣 Check your numbers : [x => %d], [y => %d]", x, y)
+		fmt.Printf("💥 Check your numbers : [x => %d], [y => %d]", x, y)
 		os.Exit(666)
 	}
 }
