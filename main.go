@@ -9,7 +9,10 @@ func main() {
 		x, y := egyptian.ReadInput()
 
 		if !egyptian.ValidateInput(x, y) {
-			break
+			if !egyptian.DoItAgain() {
+				break
+			}
+			continue
 		}
 
 		result := egyptian.Calculate(x, y)
